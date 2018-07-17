@@ -16,10 +16,14 @@ struct NewsItem {
 
 class MainTableViewController: UITableViewController {
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateHeaderView()
+    }
+    
     @IBOutlet weak var headerViewPicture: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    private let kTableHeaderHeight:CGFloat = 250
     
     override var prefersStatusBarHidden: Bool {
         get {
@@ -48,7 +52,14 @@ class MainTableViewController: UITableViewController {
         news.append(NewsItem(category: "World", headline: "South Africa in $40 billion deal for Russian nuclear reactors"))
         news.append(NewsItem(category: "Europe", headline: "'One million babies' created by EU student exchanges"))
         
-        self.tableView.tableHeaderView = headerViewPicture
+        headerViewPicture = tableView.tableHeaderView
+        tableView.tableHeaderView = nil
+        tableView.addSubview(headerViewPicture)
+        
+
+tableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
+tableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
+        updateHeaderView()
         
         let date = Date()
         let formatter = DateFormatter()
@@ -69,6 +80,15 @@ class MainTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func updateHeaderView() {
+        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: tableView.bounds.width, height: kTableHeaderHeight)
+        if tableView.contentOffset.y < -kTableHeaderHeight {
+            headerRect.origin.y = tableView.contentOffset.y
+            headerRect.size.height = -tableView.contentOffset.y
+        }
+        headerViewPicture.frame = headerRect
     }
     
     override func didReceiveMemoryWarning() {

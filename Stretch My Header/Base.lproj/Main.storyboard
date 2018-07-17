@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMo-iO-dJd">
-                                    <rect key="frame" x="8" y="8" width="91" height="29"/>
+                                    <rect key="frame" x="8" y="8" width="42" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -34,14 +34,14 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="KgY-7s-VHD" firstAttribute="top" secondItem="i0s-2p-eyh" secondAttribute="top" id="7fl-W4-OXH"/>
-                                <constraint firstAttribute="trailing" secondItem="zMo-iO-dJd" secondAttribute="trailing" constant="276" id="HbY-8N-ZSc"/>
-                                <constraint firstItem="KgY-7s-VHD" firstAttribute="leading" secondItem="i0s-2p-eyh" secondAttribute="leading" id="JYj-4K-7Uf"/>
-                                <constraint firstAttribute="trailing" secondItem="KgY-7s-VHD" secondAttribute="trailing" id="PUO-Ye-sC9"/>
-                                <constraint firstAttribute="bottom" secondItem="KgY-7s-VHD" secondAttribute="bottom" id="Rfo-RG-BEp"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zMo-iO-dJd" secondAttribute="trailing" id="HbY-8N-ZSc"/>
                                 <constraint firstAttribute="bottom" secondItem="zMo-iO-dJd" secondAttribute="bottom" constant="213" id="TvZ-l5-hOR"/>
+                                <constraint firstAttribute="trailing" secondItem="KgY-7s-VHD" secondAttribute="trailing" id="Y0x-CK-c8a"/>
                                 <constraint firstItem="zMo-iO-dJd" firstAttribute="top" secondItem="i0s-2p-eyh" secondAttribute="top" constant="8" id="ZbK-AP-bOh"/>
                                 <constraint firstItem="zMo-iO-dJd" firstAttribute="leading" secondItem="i0s-2p-eyh" secondAttribute="leading" constant="8" id="fvI-gw-ebS"/>
+                                <constraint firstItem="KgY-7s-VHD" firstAttribute="top" secondItem="i0s-2p-eyh" secondAttribute="top" id="isN-8w-GOB"/>
+                                <constraint firstItem="KgY-7s-VHD" firstAttribute="leading" secondItem="i0s-2p-eyh" secondAttribute="leading" id="lql-Dd-PUC"/>
+                                <constraint firstAttribute="bottom" secondItem="KgY-7s-VHD" secondAttribute="bottom" id="s8O-8V-LPK"/>
                             </constraints>
                         </view>
                         <prototypes>
