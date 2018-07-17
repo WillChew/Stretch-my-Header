@@ -16,6 +16,9 @@ struct NewsItem {
 
 class MainTableViewController: UITableViewController {
     
+    @IBOutlet weak var headerViewPicture: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     
     
     override var prefersStatusBarHidden: Bool {
@@ -23,10 +26,10 @@ class MainTableViewController: UITableViewController {
             return true
         }
     }
-   
+    
     
     var news = [NewsItem]()
-
+    
     
     
     
@@ -39,14 +42,21 @@ class MainTableViewController: UITableViewController {
         news.append(NewsItem(category: "World", headline: "Climate change protests, divestments meet fossil fuels realities"))
         news.append(NewsItem(category: "Europe", headline: "Scotland's 'Yes' leader says independence vote is 'once in a lifetime'"))
         news.append(NewsItem(category: "Middle East", headline: "Airstrikes boost Islamic State, FBI director warns more hostages possible"))
-       news.append(NewsItem(category: "Africa", headline: "Nigeria says 70 dead in building collapse; questions S. Africa victim claim"))
-       news.append(NewsItem(category: "Asia Pacific", headline: "Despite UN ruling, Japan seeks backing for whale hunting"))
+        news.append(NewsItem(category: "Africa", headline: "Nigeria says 70 dead in building collapse; questions S. Africa victim claim"))
+        news.append(NewsItem(category: "Asia Pacific", headline: "Despite UN ruling, Japan seeks backing for whale hunting"))
         news.append(NewsItem(category: "Americas", headline: "Officials: FBI is tracking 100 Americans who fought alongside IS in Syria"))
-         news.append(NewsItem(category: "World", headline: "South Africa in $40 billion deal for Russian nuclear reactors"))
-         news.append(NewsItem(category: "Europe", headline: "'One million babies' created by EU student exchanges"))
+        news.append(NewsItem(category: "World", headline: "South Africa in $40 billion deal for Russian nuclear reactors"))
+        news.append(NewsItem(category: "Europe", headline: "'One million babies' created by EU student exchanges"))
         
-//        news.append(newsItem1, newsItem2, newsItem3, newsItem4, newsItem5, newsItem6, newsItem7, newsItem8)
+        self.tableView.tableHeaderView = headerViewPicture
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        
+        let todaysDate = formatter.string(from: date)
+        
+        dateLabel.text = todaysDate
         
         
         
@@ -86,7 +96,7 @@ class MainTableViewController: UITableViewController {
         
         switch cell.categoryLabel.text {
         case "World":
-             cell.categoryLabel.textColor = .red
+            cell.categoryLabel.textColor = .red
         case "Americas":
             cell.categoryLabel.textColor = .blue
         case "Europe":
